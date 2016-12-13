@@ -12,10 +12,10 @@ namespace DENETİM.Controllers
         //
         // GET: /Home/
 
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult Login()
         {
             return View();
@@ -29,11 +29,11 @@ namespace DENETİM.Controllers
             {
                 using (DENETİMEntities1 de = new DENETİMEntities1())
                 {
-                    var v = de.KULLANICI.Where(a=> a.KULLANICI_TC.Equals(k.KULLANICI_TC) && a.KULLANICI_SIFRE.Equals(k.KULLANICI_SIFRE)).FirstOrDefault();
+                    var v = de.KULLANICI.Where(a => a.KULLANICI_TC.Equals(k.KULLANICI_TC) && a.KULLANICI_SIFRE.Equals(k.KULLANICI_SIFRE)).FirstOrDefault();
                     if (v != null)
                     {
-                        Session["KullanıcıID"]=v.ID.ToString();
-                        Session["KullanıcıAdı"]=v.KULLANICI_AD.ToString();
+                        Session["KullanıcıID"] = v.ID.ToString();
+                        Session["KullanıcıAdı"] = v.KULLANICI_AD.ToString();
                         return RedirectToAction("AfterLogin");
                     }
                 }
