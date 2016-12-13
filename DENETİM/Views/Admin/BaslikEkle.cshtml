@@ -1,0 +1,47 @@
+﻿@model DENETİM.BASLIK
+
+@{
+    ViewBag.Title = "BaslıkEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Başlık Ekle</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>BASLIK EKLE</legend>
+
+        <div class="editor-label">
+            <span>Başlık No</span>
+            @*@Html.LabelFor(model => model.BASLIK_NO)*@
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BASLIK_NO)
+            @Html.ValidationMessageFor(model => model.BASLIK_NO)
+        </div>
+
+        <div class="editor-label">
+            <span>Başlık Ad</span>
+            @*@Html.LabelFor(model => model.BASLIK_AD)*@
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BASLIK_AD)
+            @Html.ValidationMessageFor(model => model.BASLIK_AD)
+        </div>
+
+        <p>
+            <input type="submit" value="Kaydet" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Listeye Dön", "ListeBilgileriBaslik")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

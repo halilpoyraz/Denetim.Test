@@ -1,0 +1,33 @@
+﻿@model DENETİM.KATEGORI
+
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>KategoriEkle</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="fieldset">
+        <legend>KATEGORİ EKLE</legend>
+
+        <div class="editor-label">           
+            <span>Kategori Adı</span>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.KATEGORI_TIP)
+            @Html.ValidationMessageFor(model => model.KATEGORI_TIP)
+        </div>
+
+        <p>
+            <input type="submit" value="Kaydet" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Listeye Dön", "ListeBilgileriKategori")
+</div>

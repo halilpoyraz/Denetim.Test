@@ -1,0 +1,43 @@
+﻿@model DENETİM.KISALTMALAR
+
+@{
+    ViewBag.Title = "KısaltmaEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kısaltma Ekle</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>KISALTMALAR</legend>
+
+        <div class="editor-label">
+            <span>Kısaltma</span>
+            @*@Html.LabelFor(model => model.KISALTMA_AD)*@
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.KISALTMA_AD)
+            @Html.ValidationMessageFor(model => model.KISALTMA_AD)
+        </div>
+
+        <div class="editor-label">
+            <span>Açılımı</span>
+            @*@Html.LabelFor(model => model.KISALTMA_TANIM)*@
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.KISALTMA_TANIM)
+            @Html.ValidationMessageFor(model => model.KISALTMA_TANIM)
+        </div>
+
+        <p>
+            <input type="submit" value="Kaydet" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Listeye Dön", "ListeBilgileriKısaltmalar")
+</div>

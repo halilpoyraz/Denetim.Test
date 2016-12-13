@@ -1,0 +1,61 @@
+﻿@model DENETİM.DSTANDARTLAR
+
+@{
+    ViewBag.Title = "StandartEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Standart Ekle</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>STANDARTLAR</legend>
+
+        <div class="editor-label">
+            <span>TS No</span>
+            @*@Html.LabelFor(model => model.STANDART_NO)*@
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.STANDART_NO)
+            @Html.ValidationMessageFor(model => model.STANDART_NO)
+        </div>
+
+        <div class="editor-label">
+            <span>Standart Ad TR</span>
+            @*@Html.LabelFor(model => model.STANDART_AD)*@
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.STANDART_AD)
+            @Html.ValidationMessageFor(model => model.STANDART_AD)
+        </div>
+
+        <div class="editor-label">
+            <span>ISO/IEC No</span>
+            @*@Html.LabelFor(model => model.STANDART_NO2)*@
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.STANDART_NO2)
+            @Html.ValidationMessageFor(model => model.STANDART_NO2)
+        </div>
+
+        <div class="editor-label">
+            <span>Standar Ad ING</span>
+            @*@Html.LabelFor(model => model.STANDART_AD2)*@
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.STANDART_AD2)
+            @Html.ValidationMessageFor(model => model.STANDART_AD2)
+        </div>
+
+        <p>
+            <input type="submit" value="Kaydet" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Listeye Dön", "ListeBilgileriStandartlar")
+</div>

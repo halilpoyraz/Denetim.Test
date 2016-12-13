@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DENETİM.MADDELER>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "ListeBilgileriMaddeler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/jquery-1.9.0.min.js")"></script>
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+
+<h2>TS-13298 Maddeler</h2>
+<div style="width:500px; align-content:center">
+    <div class="insert">
+        <a style="color:white;" href="@Url.Action("MaddeEkle", "Admin")"><span class="btn-edit">Yeni Madde</span></a>
+    </div>
+    @Html.Grid(Model).Columns(columns =>
+                    {
+                        columns.Add(c => c.ID).Titled("ID");
+                        columns.Add(c => c.BOLUM.BOLUM_NO).Titled("Bölüm No").ThenSortByDescending(c=>c.ID).Filterable(true);
+                        columns.Add(c => c.BOLUM.BOLUM_AD).Titled("Bölüm Ad").ThenSortByDescending(c=>c.ID).Filterable(true);
+                        columns.Add(c => c.BASLIK.BASLIK_NO).Titled("Başlık No").ThenSortByDescending(c => c.ID).Filterable(true);
+                        columns.Add(c => c.BASLIK.BASLIK_AD).Titled("Başlık Ad").ThenSortByDescending(c => c.ID).Filterable(true);
+                        columns.Add(c => c.BASLIKALT.BASLIKALT_NO).Titled("Başlık Alt No").ThenSortByDescending(c => c.ID).Filterable(true);
+                        columns.Add(c => c.BASLIKALT.BASLIKALT_AD).Titled("Başlık Alt Ad").ThenSortByDescending(c => c.ID).Filterable(true);
+                        columns.Add(c => c.MADDE_NO).Titled("Madde No").Filterable(true);
+                        columns.Add(c => c.MADDE_TANIM).Titled("Madde Tanım").Filterable(true);
+                        columns.Add(c => c.KATEGORI.KATEGORI_TIP).Titled("Kategori").ThenSortByDescending(c => c.ID).Filterable(true);
+                        columns.Add(c => c.TUR.TUR_TIP).Titled("Türü").ThenSortByDescending(c => c.ID).Filterable(true);
+                        columns.Add(c => c.TUR.TUR_PUAN).Titled("Puan").ThenSortByDescending(c => c.ID).Filterable(true);
+                        columns.Add(c => c.MADDE_NOT).Titled("Not").Filterable(true);
+                        columns.Add().Titled("Düzenle")
+                            .Encoded(false)
+                            .Sanitized(false)
+                            .RenderValueAs(d => @<b>@Html.ActionLink("Düzenle", "MaddeDuzenle", new { id = d.ID })</b>);
+                        columns.Add().Titled("Sil")
+                            .Encoded(false)
+                            .Sanitized(false)
+                            .RenderValueAs(d => @<b>@Html.ActionLink("Sil", "MaddeSil", new { id = d.ID })</b>);
+                    }).WithPaging(3).Sortable(true)
+</div>
+

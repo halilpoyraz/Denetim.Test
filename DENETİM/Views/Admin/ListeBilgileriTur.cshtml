@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DENETİM.TUR>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "ListeBilgileriTur";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/jquery-1.9.0.min.js")"></script>
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+
+<h2>Tür Liste Bilgileri</h2>
+
+<div style="width:500px; align-content:center">
+    <div class="insert">
+        <a style="color:white;" href="@Url.Action("TurEkle", "Admin")"><span>Yeni Tür</span></a>
+    </div>
+    @Html.Grid(Model).Columns(columns =>
+                    {
+                        columns.Add(c => c.TUR_TIP).Titled("Tür Tip").Filterable(true);
+                        columns.Add(c => c.TUR_PUAN).Titled("Tür Puan").Filterable(true);
+                        columns.Add(c => c.ID).Titled("ID");
+                        columns.Add().Titled("Düzenle")
+                            .Encoded(false)
+                            .Sanitized(false)
+                            .RenderValueAs(d => @<b>@Html.ActionLink("Düzenle", "TurDuzenle", new { id = d.ID })</b>);
+                        columns.Add().Titled("Sil")
+                            .Encoded(false)
+                            .Sanitized(false)
+                            .RenderValueAs(d => @<b>@Html.ActionLink("Sil", "TurSil", new { id = d.ID })</b>);
+                    }).WithPaging(3).Sortable(true)
+</div>

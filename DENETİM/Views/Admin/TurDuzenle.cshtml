@@ -1,0 +1,45 @@
+﻿@model DENETİM.TUR
+@{
+    ViewBag.Title = "Tur Duzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TurDuzenle</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+        
+    
+    <fieldset>
+        <legend>TUR</legend>
+
+        @Html.HiddenFor(model => model.ID  )
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TUR_TIP)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TUR_TIP)
+            @Html.ValidationMessageFor(model => model.TUR_TIP)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TUR_PUAN)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TUR_PUAN)
+            @Html.ValidationMessageFor(model => model.TUR_PUAN)
+        </div>
+
+        <p>
+            <input type="submit" value="Kaydet" />
+        </p>
+    </fieldset>
+    
+}
+
+<div>
+    @Html.ActionLink("Listeye Dön", "ListeBilgileriTur")
+</div>

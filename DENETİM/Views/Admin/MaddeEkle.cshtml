@@ -1,0 +1,192 @@
+﻿@model DENETİM.MADDELER
+
+@{
+    ViewBag.Title = "MaddeEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Madde Ekle</h2>
+
+@using (Html.BeginForm()){
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>MADDELER</legend>
+
+        <div class="editor-label">
+            <span>Bölüm No</span>
+            @*@Html.LabelFor(model => model.BOLUM_NO)*@
+        </div>
+        <select name="BOLUM_NO">
+            @foreach (var BOLUM in ViewBag.Bolum)
+            {
+                <option value="@BOLUM.ID">@BOLUM.BOLUM_NO</option>
+            }
+        </select>
+        @*<div class="editor-field">
+            @Html.EditorFor(model => model.BOLUM_NO)
+            @Html.ValidationMessageFor(model => model.BOLUM_NO)
+        </div>*@
+
+        <div class="editor-label">
+            <span>Bölüm Ad</span>
+            @*@Html.LabelFor(model => model.BOLUM_AD)*@
+        </div>
+        <select name="BOLUM_AD">
+            @foreach (var BOLUM in ViewBag.Bolum)
+            {
+                <option value="@BOLUM.ID">@BOLUM.BOLUM_AD</option>
+            }
+        </select>
+        @*<div class="editor-field">
+            @Html.EditorFor(model => model.BOLUM_AD)
+            @Html.ValidationMessageFor(model => model.BOLUM_AD)
+        </div>*@
+
+        <div class="editor-label">
+            <span>Başlık No</span>
+            @*@Html.LabelFor(model => model.BASLIK_NO)*@
+        </div>
+        <select name="BASLIK_NO">
+            @foreach (var BASLIK in ViewBag.Baslik)
+            {
+                <option value="@BASLIK.ID">@BASLIK.BASLIK_NO</option>
+            }
+        </select>
+        @*<div class="editor-field">
+            @Html.EditorFor(model => model.BASLIK_NO)
+            @Html.ValidationMessageFor(model => model.BASLIK_NO)
+        </div>*@
+
+        <div class="editor-label">
+            <span>Başlık Ad</span>
+            @*@Html.LabelFor(model => model.BASLIK_AD)*@
+        </div>
+
+        <select name="BASLIK_AD">
+            @foreach (var BASLIK in ViewBag.Baslik)
+            {
+                <option value="@BASLIK.ID">@BASLIK.BASLIK_AD</option>
+            }
+        </select>
+        @*<div class="editor-field">
+            @Html.EditorFor(model => model.BASLIK_AD)
+            @Html.ValidationMessageFor(model => model.BASLIK_AD)
+        </div>*@
+
+        <div class="editor-label">
+            <span>Başlık Alt No</span>
+            @*@Html.LabelFor(model => model.BASLIKALT_NO)*@
+        </div>
+        <select name="BASLIKALT_NO">
+            @foreach (var BASLIKALT in ViewBag.BaslikAlt)
+            {
+                <option value="@BASLIKALT.ID">@BASLIKALT.BASLIKALT_NO</option>
+            }          
+        </select>
+        @*<div class="editor-field">
+            @Html.EditorFor(model => model.BASLIKALT_NO)
+            @Html.ValidationMessageFor(model => model.BASLIKALT_NO)
+        </div>*@
+        <div class="editor-label">
+            <span>Başlık Alt Ad</span>
+            @*@Html.LabelFor(model => model.BASLIKALT_AD)*@
+        </div>
+        <select name="BASLIK_AD">
+            @foreach (var BASLIKALT in ViewBag.BaslikAlt)
+            {
+                <option value="@BASLIKALT.ID">@BASLIKALT.BASLIKALT_AD</option>
+            }
+        </select>
+        @*<div class="editor-field">
+            @Html.EditorFor(model => model.BASLIKALT_AD)
+            @Html.ValidationMessageFor(model => model.BASLIKALT_AD)
+        </div>*@
+
+        <div class="editor-label">
+            <span>Madde No</span>
+            @*@Html.LabelFor(model => model.MADDE_NO)*@
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MADDE_NO)
+            @Html.ValidationMessageFor(model => model.MADDE_NO)
+        </div>
+
+        <div class="editor-label">
+            <span>Madde Tanım</span>
+            @*@Html.LabelFor(model => model.MADDE_TANIM)*@
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MADDE_TANIM)
+            @Html.ValidationMessageFor(model => model.MADDE_TANIM)
+        </div>
+
+        <div class="editor-label">
+            <span>Kategori</span>
+            @*@Html.LabelFor(model => model.MADDE_KATEGORI)*@
+        </div>
+        <select name="KATEGORI">
+            @foreach (var KATEGORI in ViewBag.Ketegori)
+            {
+                <option value="@KATEGORI.ID">@KATEGORI.KATEGORI_TIP</option>
+            }
+        </select>
+        @*<div class="editor-field">
+            @Html.EditorFor(model => model.MADDE_KATEGORI)
+            @Html.ValidationMessageFor(model => model.MADDE_KATEGORI)
+        </div>*@
+
+        <div class="editor-label">
+            <span>Türü</span>
+            @*@Html.LabelFor(model => model.MADDE_TUR)*@
+        </div>
+        <select name="TUR_TIP">
+            @foreach (var TUR in ViewBag.Tur)
+            {
+                <option value="@TUR.ID">@TUR.TUR_TIP</option>
+            }
+        </select>
+        @*<div class="editor-field">
+            @Html.EditorFor(model => model.MADDE_TUR)
+            @Html.ValidationMessageFor(model => model.MADDE_TUR)
+        </div>*@
+
+        <div class="editor-label">
+            <span>Puan</span>
+            @*@Html.LabelFor(model => model.MADDE_PUAN)*@
+        </div>
+        <select name="TUR_PUAN">
+            @foreach (var TUR in ViewBag.Tur)
+            {
+                <option value="@TUR.ID">@TUR.TUR_PUAN</option>
+            }
+        </select>
+        @*<div class="editor-field">
+            @Html.EditorFor(model => model.MADDE_PUAN)
+            @Html.ValidationMessageFor(model => model.MADDE_PUAN)
+        </div>*@
+
+        <div class="editor-label">
+            <span>Not</span>
+            @*@Html.LabelFor(model => model.MADDE_NOT)*@
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MADDE_NOT)
+            @Html.ValidationMessageFor(model => model.MADDE_NOT)
+        </div>
+
+        <p>
+            <input type="submit" value="Kaydet" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Listeye Dön", "ListeBilgileriMaddeler")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

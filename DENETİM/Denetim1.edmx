@@ -1,0 +1,1167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DENETİMModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BASLIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BASLIK_NO" Type="int" Nullable="false" />
+          <Property Name="BASLIK_AD" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BASLIKALT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BASLIKALT_NO" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="BASLIKALT_AD" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BOLUM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BOLUM_NO" Type="int" Nullable="false" />
+          <Property Name="BOLUM_AD" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DDOKUMANLAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DOKUMAN_AD" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DOKUMAN_YER" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DOKUMAN_DAYANAK" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DEGERLENDIRME">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SONUC" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DENETIM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KATEGORI_TIP" Type="int" Nullable="false" />
+          <Property Name="MADDE_TANIM" Type="int" Nullable="false" />
+          <Property Name="TUR_TIP" Type="int" Nullable="false" />
+          <Property Name="TUR_PUAN" Type="int" Nullable="false" />
+          <Property Name="SONUC_TIP" Type="int" Nullable="false" />
+          <Property Name="GORUS" Type="nvarchar(max)" />
+          <Property Name="DENETIM_PUAN" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DENETIMSONUC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DENETIM_ID" Type="int" Nullable="false" />
+          <Property Name="DENETIM_KATEGORI" Type="int" Nullable="false" />
+          <Property Name="DENETIM_YER" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DENETİM_BASTARIH" Type="date" Nullable="false" />
+          <Property Name="DENETIM_BITTARIH" Type="date" Nullable="false" />
+          <Property Name="DEGERLENDIRME_SONUC" Type="int" Nullable="false" />
+          <Property Name="DENETIM_PUAN" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DSTANDARTLAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STANDART_NO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="STANDART_AD" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="STANDART_NO2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="STANDART_AD2" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KATEGORI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KATEGORI_TIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KISALTMALAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KISALTMA_AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KISALTMA_TANIM" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KULLANICI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KULLANICI_TC" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="KULLANICI_AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KULLANICI_SOYAD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KULLANICI_UNVAN" Type="nvarchar" MaxLength="50" />
+          <Property Name="KULLANICI_MESLEK" Type="nvarchar" MaxLength="50" />
+          <Property Name="KULLANICI_SIFRE" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MADDELER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BOLUM_NO" Type="int" Nullable="false" />
+          <Property Name="BOLUM_AD" Type="int" Nullable="false" />
+          <Property Name="BASLIK_NO" Type="int" Nullable="false" />
+          <Property Name="BASLIK_AD" Type="int" Nullable="false" />
+          <Property Name="BASLIKALT_NO" Type="int" Nullable="false" />
+          <Property Name="BASLIKALT_AD" Type="int" Nullable="false" />
+          <Property Name="MADDE_NO" Type="float" Nullable="false" />
+          <Property Name="MADDE_TANIM" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MADDE_KATEGORI" Type="int" Nullable="false" />
+          <Property Name="MADDE_TUR" Type="int" Nullable="false" />
+          <Property Name="MADDE_PUAN" Type="int" Nullable="false" />
+          <Property Name="MADDE_NOT" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SONUC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SONUC_TIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TERIMLER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TERIM_AD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TERIM_TANIM" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TUR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TUR_TIP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TUR_PUAN" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DENETIM_KATEGORI">
+          <End Role="KATEGORI" Type="Self.KATEGORI" Multiplicity="1" />
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KATEGORI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIM">
+              <PropertyRef Name="KATEGORI_TIP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIM_MADDELER">
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="1" />
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MADDELER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIM">
+              <PropertyRef Name="MADDE_TANIM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIM_SONUC">
+          <End Role="SONUC" Type="Self.SONUC" Multiplicity="1" />
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SONUC">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIM">
+              <PropertyRef Name="SONUC_TIP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIM_TUR">
+          <End Role="TUR" Type="Self.TUR" Multiplicity="1" />
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIM">
+              <PropertyRef Name="TUR_TIP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIM_TUR1">
+          <End Role="TUR" Type="Self.TUR" Multiplicity="1" />
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIM">
+              <PropertyRef Name="TUR_PUAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIMSONUC_DEGERLENDIRME">
+          <End Role="DEGERLENDIRME" Type="Self.DEGERLENDIRME" Multiplicity="1" />
+          <End Role="DENETIMSONUC" Type="Self.DENETIMSONUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEGERLENDIRME">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIMSONUC">
+              <PropertyRef Name="DEGERLENDIRME_SONUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIMSONUC_DENETIM">
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="1" />
+          <End Role="DENETIMSONUC" Type="Self.DENETIMSONUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DENETIM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIMSONUC">
+              <PropertyRef Name="DENETIM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIMSONUC_DENETIM1">
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="1" />
+          <End Role="DENETIMSONUC" Type="Self.DENETIMSONUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DENETIM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIMSONUC">
+              <PropertyRef Name="DENETIM_PUAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIMSONUC_KATEGORI">
+          <End Role="KATEGORI" Type="Self.KATEGORI" Multiplicity="1" />
+          <End Role="DENETIMSONUC" Type="Self.DENETIMSONUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KATEGORI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIMSONUC">
+              <PropertyRef Name="DENETIM_KATEGORI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_BASLIK">
+          <End Role="BASLIK" Type="Self.BASLIK" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BASLIK">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="BASLIK_NO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_BASLIK1">
+          <End Role="BASLIK" Type="Self.BASLIK" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BASLIK">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="BASLIK_AD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_BASLIKALT">
+          <End Role="BASLIKALT" Type="Self.BASLIKALT" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BASLIKALT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="BASLIKALT_NO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_BASLIKALT1">
+          <End Role="BASLIKALT" Type="Self.BASLIKALT" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BASLIKALT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="BASLIKALT_AD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_BOLUM">
+          <End Role="BOLUM" Type="Self.BOLUM" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOLUM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="BOLUM_NO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_BOLUM1">
+          <End Role="BOLUM" Type="Self.BOLUM" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOLUM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="BOLUM_AD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_KATEGORI">
+          <End Role="KATEGORI" Type="Self.KATEGORI" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KATEGORI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="MADDE_KATEGORI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_TUR">
+          <End Role="TUR" Type="Self.TUR" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="MADDE_TUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_TUR1">
+          <End Role="TUR" Type="Self.TUR" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="MADDE_PUAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DENETİMModel1StoreContainer">
+          <EntitySet Name="BASLIK" EntityType="Self.BASLIK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BASLIKALT" EntityType="Self.BASLIKALT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BOLUM" EntityType="Self.BOLUM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DDOKUMANLAR" EntityType="Self.DDOKUMANLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DEGERLENDIRME" EntityType="Self.DEGERLENDIRME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DENETIM" EntityType="Self.DENETIM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DENETIMSONUC" EntityType="Self.DENETIMSONUC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DSTANDARTLAR" EntityType="Self.DSTANDARTLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KATEGORI" EntityType="Self.KATEGORI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KISALTMALAR" EntityType="Self.KISALTMALAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KULLANICI" EntityType="Self.KULLANICI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MADDELER" EntityType="Self.MADDELER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SONUC" EntityType="Self.SONUC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TERIMLER" EntityType="Self.TERIMLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TUR" EntityType="Self.TUR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DENETIM_KATEGORI" Association="Self.FK_DENETIM_KATEGORI">
+            <End Role="KATEGORI" EntitySet="KATEGORI" />
+            <End Role="DENETIM" EntitySet="DENETIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIM_MADDELER" Association="Self.FK_DENETIM_MADDELER">
+            <End Role="MADDELER" EntitySet="MADDELER" />
+            <End Role="DENETIM" EntitySet="DENETIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIM_SONUC" Association="Self.FK_DENETIM_SONUC">
+            <End Role="SONUC" EntitySet="SONUC" />
+            <End Role="DENETIM" EntitySet="DENETIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIM_TUR" Association="Self.FK_DENETIM_TUR">
+            <End Role="TUR" EntitySet="TUR" />
+            <End Role="DENETIM" EntitySet="DENETIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIM_TUR1" Association="Self.FK_DENETIM_TUR1">
+            <End Role="TUR" EntitySet="TUR" />
+            <End Role="DENETIM" EntitySet="DENETIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIMSONUC_DEGERLENDIRME" Association="Self.FK_DENETIMSONUC_DEGERLENDIRME">
+            <End Role="DEGERLENDIRME" EntitySet="DEGERLENDIRME" />
+            <End Role="DENETIMSONUC" EntitySet="DENETIMSONUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIMSONUC_DENETIM" Association="Self.FK_DENETIMSONUC_DENETIM">
+            <End Role="DENETIM" EntitySet="DENETIM" />
+            <End Role="DENETIMSONUC" EntitySet="DENETIMSONUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIMSONUC_DENETIM1" Association="Self.FK_DENETIMSONUC_DENETIM1">
+            <End Role="DENETIM" EntitySet="DENETIM" />
+            <End Role="DENETIMSONUC" EntitySet="DENETIMSONUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIMSONUC_KATEGORI" Association="Self.FK_DENETIMSONUC_KATEGORI">
+            <End Role="KATEGORI" EntitySet="KATEGORI" />
+            <End Role="DENETIMSONUC" EntitySet="DENETIMSONUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_BASLIK" Association="Self.FK_MADDELER_BASLIK">
+            <End Role="BASLIK" EntitySet="BASLIK" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_BASLIK1" Association="Self.FK_MADDELER_BASLIK1">
+            <End Role="BASLIK" EntitySet="BASLIK" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_BASLIKALT" Association="Self.FK_MADDELER_BASLIKALT">
+            <End Role="BASLIKALT" EntitySet="BASLIKALT" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_BASLIKALT1" Association="Self.FK_MADDELER_BASLIKALT1">
+            <End Role="BASLIKALT" EntitySet="BASLIKALT" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_BOLUM" Association="Self.FK_MADDELER_BOLUM">
+            <End Role="BOLUM" EntitySet="BOLUM" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_BOLUM1" Association="Self.FK_MADDELER_BOLUM1">
+            <End Role="BOLUM" EntitySet="BOLUM" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_KATEGORI" Association="Self.FK_MADDELER_KATEGORI">
+            <End Role="KATEGORI" EntitySet="KATEGORI" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_TUR" Association="Self.FK_MADDELER_TUR">
+            <End Role="TUR" EntitySet="TUR" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_TUR1" Association="Self.FK_MADDELER_TUR1">
+            <End Role="TUR" EntitySet="TUR" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DENETİMModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BASLIK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BASLIK_NO" Type="Int32" Nullable="false" />
+          <Property Name="BASLIK_AD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MADDELER" Relationship="Self.FK_MADDELER_BASLIK" FromRole="BASLIK" ToRole="MADDELER" />
+          <NavigationProperty Name="MADDELER1" Relationship="Self.FK_MADDELER_BASLIK1" FromRole="BASLIK" ToRole="MADDELER" />
+        </EntityType>
+        <EntityType Name="BASLIKALT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BASLIKALT_NO" Type="String" Nullable="false" />
+          <Property Name="BASLIKALT_AD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MADDELER" Relationship="Self.FK_MADDELER_BASLIKALT" FromRole="BASLIKALT" ToRole="MADDELER" />
+          <NavigationProperty Name="MADDELER1" Relationship="Self.FK_MADDELER_BASLIKALT1" FromRole="BASLIKALT" ToRole="MADDELER" />
+        </EntityType>
+        <EntityType Name="BOLUM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BOLUM_NO" Type="Int32" Nullable="false" />
+          <Property Name="BOLUM_AD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MADDELER" Relationship="Self.FK_MADDELER_BOLUM" FromRole="BOLUM" ToRole="MADDELER" />
+          <NavigationProperty Name="MADDELER1" Relationship="Self.FK_MADDELER_BOLUM1" FromRole="BOLUM" ToRole="MADDELER" />
+        </EntityType>
+        <EntityType Name="DEGERLENDIRME">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SONUC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DENETIMSONUC" Relationship="Self.FK_DENETIMSONUC_DEGERLENDIRME" FromRole="DEGERLENDIRME" ToRole="DENETIMSONUC" />
+        </EntityType>
+        <EntityType Name="DENETIM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KATEGORI_TIP" Type="Int32" Nullable="false" />
+          <Property Name="MADDE_TANIM" Type="Int32" Nullable="false" />
+          <Property Name="TUR_TIP" Type="Int32" Nullable="false" />
+          <Property Name="TUR_PUAN" Type="Int32" Nullable="false" />
+          <Property Name="SONUC_TIP" Type="Int32" Nullable="false" />
+          <Property Name="GORUS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DENETIM_PUAN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="KATEGORI" Relationship="Self.FK_DENETIM_KATEGORI" FromRole="DENETIM" ToRole="KATEGORI" />
+          <NavigationProperty Name="MADDELER" Relationship="Self.FK_DENETIM_MADDELER" FromRole="DENETIM" ToRole="MADDELER" />
+          <NavigationProperty Name="SONUC" Relationship="Self.FK_DENETIM_SONUC" FromRole="DENETIM" ToRole="SONUC" />
+          <NavigationProperty Name="TUR" Relationship="Self.FK_DENETIM_TUR" FromRole="DENETIM" ToRole="TUR" />
+          <NavigationProperty Name="TUR1" Relationship="Self.FK_DENETIM_TUR1" FromRole="DENETIM" ToRole="TUR" />
+          <NavigationProperty Name="DENETIMSONUC" Relationship="Self.FK_DENETIMSONUC_DENETIM" FromRole="DENETIM" ToRole="DENETIMSONUC" />
+          <NavigationProperty Name="DENETIMSONUC1" Relationship="Self.FK_DENETIMSONUC_DENETIM1" FromRole="DENETIM" ToRole="DENETIMSONUC" />
+        </EntityType>
+        <EntityType Name="DENETIMSONUC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DENETIM_ID" Type="Int32" Nullable="false" />
+          <Property Name="DENETIM_KATEGORI" Type="Int32" Nullable="false" />
+          <Property Name="DENETIM_YER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DENETİM_BASTARIH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DENETIM_BITTARIH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DEGERLENDIRME_SONUC" Type="Int32" Nullable="false" />
+          <Property Name="DENETIM_PUAN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DEGERLENDIRME" Relationship="Self.FK_DENETIMSONUC_DEGERLENDIRME" FromRole="DENETIMSONUC" ToRole="DEGERLENDIRME" />
+          <NavigationProperty Name="DENETIM" Relationship="Self.FK_DENETIMSONUC_DENETIM" FromRole="DENETIMSONUC" ToRole="DENETIM" />
+          <NavigationProperty Name="DENETIM1" Relationship="Self.FK_DENETIMSONUC_DENETIM1" FromRole="DENETIMSONUC" ToRole="DENETIM" />
+          <NavigationProperty Name="KATEGORI" Relationship="Self.FK_DENETIMSONUC_KATEGORI" FromRole="DENETIMSONUC" ToRole="KATEGORI" />
+        </EntityType>
+        <EntityType Name="KATEGORI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KATEGORI_TIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DENETIM" Relationship="Self.FK_DENETIM_KATEGORI" FromRole="KATEGORI" ToRole="DENETIM" />
+          <NavigationProperty Name="DENETIMSONUC" Relationship="Self.FK_DENETIMSONUC_KATEGORI" FromRole="KATEGORI" ToRole="DENETIMSONUC" />
+          <NavigationProperty Name="MADDELER" Relationship="Self.FK_MADDELER_KATEGORI" FromRole="KATEGORI" ToRole="MADDELER" />
+        </EntityType>
+        <EntityType Name="KULLANICI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KULLANICI_TC" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="KULLANICI_AD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KULLANICI_SOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KULLANICI_UNVAN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KULLANICI_MESLEK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KULLANICI_SIFRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MADDELER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BOLUM_NO" Type="Int32" Nullable="false" />
+          <Property Name="BOLUM_AD" Type="Int32" Nullable="false" />
+          <Property Name="BASLIK_NO" Type="Int32" Nullable="false" />
+          <Property Name="BASLIK_AD" Type="Int32" Nullable="false" />
+          <Property Name="BASLIKALT_NO" Type="Int32" Nullable="false" />
+          <Property Name="BASLIKALT_AD" Type="Int32" Nullable="false" />
+          <Property Name="MADDE_NO" Type="Double" Nullable="false" />
+          <Property Name="MADDE_TANIM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MADDE_KATEGORI" Type="Int32" Nullable="false" />
+          <Property Name="MADDE_TUR" Type="Int32" Nullable="false" />
+          <Property Name="MADDE_PUAN" Type="Int32" Nullable="false" />
+          <Property Name="MADDE_NOT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BASLIK" Relationship="Self.FK_MADDELER_BASLIK" FromRole="MADDELER" ToRole="BASLIK" />
+          <NavigationProperty Name="BASLIK1" Relationship="Self.FK_MADDELER_BASLIK1" FromRole="MADDELER" ToRole="BASLIK" />
+          <NavigationProperty Name="BASLIKALT" Relationship="Self.FK_MADDELER_BASLIKALT" FromRole="MADDELER" ToRole="BASLIKALT" />
+          <NavigationProperty Name="BASLIKALT1" Relationship="Self.FK_MADDELER_BASLIKALT1" FromRole="MADDELER" ToRole="BASLIKALT" />
+          <NavigationProperty Name="BOLUM" Relationship="Self.FK_MADDELER_BOLUM" FromRole="MADDELER" ToRole="BOLUM" />
+          <NavigationProperty Name="BOLUM1" Relationship="Self.FK_MADDELER_BOLUM1" FromRole="MADDELER" ToRole="BOLUM" />
+          <NavigationProperty Name="DENETIM" Relationship="Self.FK_DENETIM_MADDELER" FromRole="MADDELER" ToRole="DENETIM" />
+          <NavigationProperty Name="KATEGORI" Relationship="Self.FK_MADDELER_KATEGORI" FromRole="MADDELER" ToRole="KATEGORI" />
+          <NavigationProperty Name="TUR" Relationship="Self.FK_MADDELER_TUR" FromRole="MADDELER" ToRole="TUR" />
+          <NavigationProperty Name="TUR1" Relationship="Self.FK_MADDELER_TUR1" FromRole="MADDELER" ToRole="TUR" />
+        </EntityType>
+        <EntityType Name="SONUC">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SONUC_TIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DENETIM" Relationship="Self.FK_DENETIM_SONUC" FromRole="SONUC" ToRole="DENETIM" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TUR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TUR_TIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TUR_PUAN" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DENETIM" Relationship="Self.FK_DENETIM_TUR" FromRole="TUR" ToRole="DENETIM" />
+          <NavigationProperty Name="DENETIM1" Relationship="Self.FK_DENETIM_TUR1" FromRole="TUR" ToRole="DENETIM" />
+          <NavigationProperty Name="MADDELER" Relationship="Self.FK_MADDELER_TUR" FromRole="TUR" ToRole="MADDELER" />
+          <NavigationProperty Name="MADDELER1" Relationship="Self.FK_MADDELER_TUR1" FromRole="TUR" ToRole="MADDELER" />
+        </EntityType>
+        <Association Name="FK_MADDELER_BASLIK">
+          <End Role="BASLIK" Type="Self.BASLIK" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BASLIK">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="BASLIK_NO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_BASLIK1">
+          <End Role="BASLIK" Type="Self.BASLIK" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BASLIK">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="BASLIK_AD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_BASLIKALT">
+          <End Role="BASLIKALT" Type="Self.BASLIKALT" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BASLIKALT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="BASLIKALT_NO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_BASLIKALT1">
+          <End Role="BASLIKALT" Type="Self.BASLIKALT" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BASLIKALT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="BASLIKALT_AD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_BOLUM">
+          <End Role="BOLUM" Type="Self.BOLUM" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOLUM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="BOLUM_NO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_BOLUM1">
+          <End Role="BOLUM" Type="Self.BOLUM" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOLUM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="BOLUM_AD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIMSONUC_DEGERLENDIRME">
+          <End Role="DEGERLENDIRME" Type="Self.DEGERLENDIRME" Multiplicity="1" />
+          <End Role="DENETIMSONUC" Type="Self.DENETIMSONUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEGERLENDIRME">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIMSONUC">
+              <PropertyRef Name="DEGERLENDIRME_SONUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIM_KATEGORI">
+          <End Role="KATEGORI" Type="Self.KATEGORI" Multiplicity="1" />
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KATEGORI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIM">
+              <PropertyRef Name="KATEGORI_TIP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIM_MADDELER">
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="1" />
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MADDELER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIM">
+              <PropertyRef Name="MADDE_TANIM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIM_SONUC">
+          <End Role="SONUC" Type="Self.SONUC" Multiplicity="1" />
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SONUC">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIM">
+              <PropertyRef Name="SONUC_TIP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIM_TUR">
+          <End Role="TUR" Type="Self.TUR" Multiplicity="1" />
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIM">
+              <PropertyRef Name="TUR_TIP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIM_TUR1">
+          <End Role="TUR" Type="Self.TUR" Multiplicity="1" />
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIM">
+              <PropertyRef Name="TUR_PUAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIMSONUC_DENETIM">
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="1" />
+          <End Role="DENETIMSONUC" Type="Self.DENETIMSONUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DENETIM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIMSONUC">
+              <PropertyRef Name="DENETIM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIMSONUC_DENETIM1">
+          <End Role="DENETIM" Type="Self.DENETIM" Multiplicity="1" />
+          <End Role="DENETIMSONUC" Type="Self.DENETIMSONUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DENETIM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIMSONUC">
+              <PropertyRef Name="DENETIM_PUAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DENETIMSONUC_KATEGORI">
+          <End Role="KATEGORI" Type="Self.KATEGORI" Multiplicity="1" />
+          <End Role="DENETIMSONUC" Type="Self.DENETIMSONUC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KATEGORI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DENETIMSONUC">
+              <PropertyRef Name="DENETIM_KATEGORI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_KATEGORI">
+          <End Role="KATEGORI" Type="Self.KATEGORI" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KATEGORI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="MADDE_KATEGORI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_TUR">
+          <End Role="TUR" Type="Self.TUR" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="MADDE_TUR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MADDELER_TUR1">
+          <End Role="TUR" Type="Self.TUR" Multiplicity="1" />
+          <End Role="MADDELER" Type="Self.MADDELER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TUR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MADDELER">
+              <PropertyRef Name="MADDE_PUAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DENETİMEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BASLIK" EntityType="Self.BASLIK" />
+          <EntitySet Name="BASLIKALT" EntityType="Self.BASLIKALT" />
+          <EntitySet Name="BOLUM" EntityType="Self.BOLUM" />
+          <EntitySet Name="DEGERLENDIRME" EntityType="Self.DEGERLENDIRME" />
+          <EntitySet Name="DENETIM" EntityType="Self.DENETIM" />
+          <EntitySet Name="DENETIMSONUC" EntityType="Self.DENETIMSONUC" />
+          <EntitySet Name="KATEGORI" EntityType="Self.KATEGORI" />
+          <EntitySet Name="KULLANICI" EntityType="Self.KULLANICI" />
+          <EntitySet Name="MADDELER" EntityType="Self.MADDELER" />
+          <EntitySet Name="SONUC" EntityType="Self.SONUC" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TUR" EntityType="Self.TUR" />
+          <AssociationSet Name="FK_MADDELER_BASLIK" Association="Self.FK_MADDELER_BASLIK">
+            <End Role="BASLIK" EntitySet="BASLIK" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_BASLIK1" Association="Self.FK_MADDELER_BASLIK1">
+            <End Role="BASLIK" EntitySet="BASLIK" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_BASLIKALT" Association="Self.FK_MADDELER_BASLIKALT">
+            <End Role="BASLIKALT" EntitySet="BASLIKALT" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_BASLIKALT1" Association="Self.FK_MADDELER_BASLIKALT1">
+            <End Role="BASLIKALT" EntitySet="BASLIKALT" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_BOLUM" Association="Self.FK_MADDELER_BOLUM">
+            <End Role="BOLUM" EntitySet="BOLUM" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_BOLUM1" Association="Self.FK_MADDELER_BOLUM1">
+            <End Role="BOLUM" EntitySet="BOLUM" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIMSONUC_DEGERLENDIRME" Association="Self.FK_DENETIMSONUC_DEGERLENDIRME">
+            <End Role="DEGERLENDIRME" EntitySet="DEGERLENDIRME" />
+            <End Role="DENETIMSONUC" EntitySet="DENETIMSONUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIM_KATEGORI" Association="Self.FK_DENETIM_KATEGORI">
+            <End Role="KATEGORI" EntitySet="KATEGORI" />
+            <End Role="DENETIM" EntitySet="DENETIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIM_MADDELER" Association="Self.FK_DENETIM_MADDELER">
+            <End Role="MADDELER" EntitySet="MADDELER" />
+            <End Role="DENETIM" EntitySet="DENETIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIM_SONUC" Association="Self.FK_DENETIM_SONUC">
+            <End Role="SONUC" EntitySet="SONUC" />
+            <End Role="DENETIM" EntitySet="DENETIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIM_TUR" Association="Self.FK_DENETIM_TUR">
+            <End Role="TUR" EntitySet="TUR" />
+            <End Role="DENETIM" EntitySet="DENETIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIM_TUR1" Association="Self.FK_DENETIM_TUR1">
+            <End Role="TUR" EntitySet="TUR" />
+            <End Role="DENETIM" EntitySet="DENETIM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIMSONUC_DENETIM" Association="Self.FK_DENETIMSONUC_DENETIM">
+            <End Role="DENETIM" EntitySet="DENETIM" />
+            <End Role="DENETIMSONUC" EntitySet="DENETIMSONUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIMSONUC_DENETIM1" Association="Self.FK_DENETIMSONUC_DENETIM1">
+            <End Role="DENETIM" EntitySet="DENETIM" />
+            <End Role="DENETIMSONUC" EntitySet="DENETIMSONUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DENETIMSONUC_KATEGORI" Association="Self.FK_DENETIMSONUC_KATEGORI">
+            <End Role="KATEGORI" EntitySet="KATEGORI" />
+            <End Role="DENETIMSONUC" EntitySet="DENETIMSONUC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_KATEGORI" Association="Self.FK_MADDELER_KATEGORI">
+            <End Role="KATEGORI" EntitySet="KATEGORI" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_TUR" Association="Self.FK_MADDELER_TUR">
+            <End Role="TUR" EntitySet="TUR" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MADDELER_TUR1" Association="Self.FK_MADDELER_TUR1">
+            <End Role="TUR" EntitySet="TUR" />
+            <End Role="MADDELER" EntitySet="MADDELER" />
+          </AssociationSet>
+          <EntitySet Name="DDOKUMANLAR" EntityType="DENETİMModel1.DDOKUMANLAR" />
+          <EntitySet Name="DSTANDARTLAR" EntityType="DENETİMModel1.DSTANDARTLAR" />
+          <EntitySet Name="KISALTMALAR" EntityType="DENETİMModel1.KISALTMALAR" />
+          <EntitySet Name="TERIMLER" EntityType="DENETİMModel1.TERIMLER" />
+        </EntityContainer>
+        <EntityType Name="DDOKUMANLAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DOKUMAN_AD" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DOKUMAN_YER" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DOKUMAN_DAYANAK" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DSTANDARTLAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STANDART_NO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STANDART_AD" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STANDART_NO2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STANDART_AD2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="KISALTMALAR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KISALTMA_AD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KISALTMA_TANIM" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TERIMLER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TERIM_AD" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TERIM_TANIM" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DENETİMModel1StoreContainer" CdmEntityContainer="DENETİMEntities1">
+          <EntitySetMapping Name="BASLIK">
+            <EntityTypeMapping TypeName="DENETİMModel1.BASLIK">
+              <MappingFragment StoreEntitySet="BASLIK">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BASLIK_NO" ColumnName="BASLIK_NO" />
+                <ScalarProperty Name="BASLIK_AD" ColumnName="BASLIK_AD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BASLIKALT">
+            <EntityTypeMapping TypeName="DENETİMModel1.BASLIKALT">
+              <MappingFragment StoreEntitySet="BASLIKALT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BASLIKALT_NO" ColumnName="BASLIKALT_NO" />
+                <ScalarProperty Name="BASLIKALT_AD" ColumnName="BASLIKALT_AD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOLUM">
+            <EntityTypeMapping TypeName="DENETİMModel1.BOLUM">
+              <MappingFragment StoreEntitySet="BOLUM">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BOLUM_NO" ColumnName="BOLUM_NO" />
+                <ScalarProperty Name="BOLUM_AD" ColumnName="BOLUM_AD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEGERLENDIRME">
+            <EntityTypeMapping TypeName="DENETİMModel1.DEGERLENDIRME">
+              <MappingFragment StoreEntitySet="DEGERLENDIRME">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SONUC" ColumnName="SONUC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DENETIM">
+            <EntityTypeMapping TypeName="DENETİMModel1.DENETIM">
+              <MappingFragment StoreEntitySet="DENETIM">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KATEGORI_TIP" ColumnName="KATEGORI_TIP" />
+                <ScalarProperty Name="MADDE_TANIM" ColumnName="MADDE_TANIM" />
+                <ScalarProperty Name="TUR_TIP" ColumnName="TUR_TIP" />
+                <ScalarProperty Name="TUR_PUAN" ColumnName="TUR_PUAN" />
+                <ScalarProperty Name="SONUC_TIP" ColumnName="SONUC_TIP" />
+                <ScalarProperty Name="GORUS" ColumnName="GORUS" />
+                <ScalarProperty Name="DENETIM_PUAN" ColumnName="DENETIM_PUAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DENETIMSONUC">
+            <EntityTypeMapping TypeName="DENETİMModel1.DENETIMSONUC">
+              <MappingFragment StoreEntitySet="DENETIMSONUC">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DENETIM_ID" ColumnName="DENETIM_ID" />
+                <ScalarProperty Name="DENETIM_KATEGORI" ColumnName="DENETIM_KATEGORI" />
+                <ScalarProperty Name="DENETIM_YER" ColumnName="DENETIM_YER" />
+                <ScalarProperty Name="DENETİM_BASTARIH" ColumnName="DENETİM_BASTARIH" />
+                <ScalarProperty Name="DENETIM_BITTARIH" ColumnName="DENETIM_BITTARIH" />
+                <ScalarProperty Name="DEGERLENDIRME_SONUC" ColumnName="DEGERLENDIRME_SONUC" />
+                <ScalarProperty Name="DENETIM_PUAN" ColumnName="DENETIM_PUAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KATEGORI">
+            <EntityTypeMapping TypeName="DENETİMModel1.KATEGORI">
+              <MappingFragment StoreEntitySet="KATEGORI">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KATEGORI_TIP" ColumnName="KATEGORI_TIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KULLANICI">
+            <EntityTypeMapping TypeName="DENETİMModel1.KULLANICI">
+              <MappingFragment StoreEntitySet="KULLANICI">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KULLANICI_TC" ColumnName="KULLANICI_TC" />
+                <ScalarProperty Name="KULLANICI_AD" ColumnName="KULLANICI_AD" />
+                <ScalarProperty Name="KULLANICI_SOYAD" ColumnName="KULLANICI_SOYAD" />
+                <ScalarProperty Name="KULLANICI_UNVAN" ColumnName="KULLANICI_UNVAN" />
+                <ScalarProperty Name="KULLANICI_MESLEK" ColumnName="KULLANICI_MESLEK" />
+                <ScalarProperty Name="KULLANICI_SIFRE" ColumnName="KULLANICI_SIFRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MADDELER">
+            <EntityTypeMapping TypeName="DENETİMModel1.MADDELER">
+              <MappingFragment StoreEntitySet="MADDELER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BOLUM_NO" ColumnName="BOLUM_NO" />
+                <ScalarProperty Name="BOLUM_AD" ColumnName="BOLUM_AD" />
+                <ScalarProperty Name="BASLIK_NO" ColumnName="BASLIK_NO" />
+                <ScalarProperty Name="BASLIK_AD" ColumnName="BASLIK_AD" />
+                <ScalarProperty Name="BASLIKALT_NO" ColumnName="BASLIKALT_NO" />
+                <ScalarProperty Name="BASLIKALT_AD" ColumnName="BASLIKALT_AD" />
+                <ScalarProperty Name="MADDE_NO" ColumnName="MADDE_NO" />
+                <ScalarProperty Name="MADDE_TANIM" ColumnName="MADDE_TANIM" />
+                <ScalarProperty Name="MADDE_KATEGORI" ColumnName="MADDE_KATEGORI" />
+                <ScalarProperty Name="MADDE_TUR" ColumnName="MADDE_TUR" />
+                <ScalarProperty Name="MADDE_PUAN" ColumnName="MADDE_PUAN" />
+                <ScalarProperty Name="MADDE_NOT" ColumnName="MADDE_NOT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SONUC">
+            <EntityTypeMapping TypeName="DENETİMModel1.SONUC">
+              <MappingFragment StoreEntitySet="SONUC">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SONUC_TIP" ColumnName="SONUC_TIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DENETİMModel1.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TUR">
+            <EntityTypeMapping TypeName="DENETİMModel1.TUR">
+              <MappingFragment StoreEntitySet="TUR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TUR_TIP" ColumnName="TUR_TIP" />
+                <ScalarProperty Name="TUR_PUAN" ColumnName="TUR_PUAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DDOKUMANLAR">
+            <EntityTypeMapping TypeName="DENETİMModel1.DDOKUMANLAR">
+              <MappingFragment StoreEntitySet="DDOKUMANLAR">
+                <ScalarProperty Name="DOKUMAN_DAYANAK" ColumnName="DOKUMAN_DAYANAK" />
+                <ScalarProperty Name="DOKUMAN_YER" ColumnName="DOKUMAN_YER" />
+                <ScalarProperty Name="DOKUMAN_AD" ColumnName="DOKUMAN_AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DSTANDARTLAR">
+            <EntityTypeMapping TypeName="DENETİMModel1.DSTANDARTLAR">
+              <MappingFragment StoreEntitySet="DSTANDARTLAR">
+                <ScalarProperty Name="STANDART_AD2" ColumnName="STANDART_AD2" />
+                <ScalarProperty Name="STANDART_NO2" ColumnName="STANDART_NO2" />
+                <ScalarProperty Name="STANDART_AD" ColumnName="STANDART_AD" />
+                <ScalarProperty Name="STANDART_NO" ColumnName="STANDART_NO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KISALTMALAR">
+            <EntityTypeMapping TypeName="DENETİMModel1.KISALTMALAR">
+              <MappingFragment StoreEntitySet="KISALTMALAR">
+                <ScalarProperty Name="KISALTMA_TANIM" ColumnName="KISALTMA_TANIM" />
+                <ScalarProperty Name="KISALTMA_AD" ColumnName="KISALTMA_AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TERIMLER">
+            <EntityTypeMapping TypeName="DENETİMModel1.TERIMLER">
+              <MappingFragment StoreEntitySet="TERIMLER">
+                <ScalarProperty Name="TERIM_TANIM" ColumnName="TERIM_TANIM" />
+                <ScalarProperty Name="TERIM_AD" ColumnName="TERIM_AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

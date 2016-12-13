@@ -1,0 +1,54 @@
+﻿@model DENETİM.DDOKUMANLAR
+
+@{
+    ViewBag.Title = "DokumanDuzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Doküman Düzenle</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DDOKUMANLAR</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            <span>Doküman Ad</span>
+            @*@Html.LabelFor(model => model.DOKUMAN_AD)*@
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DOKUMAN_AD)
+            @Html.ValidationMessageFor(model => model.DOKUMAN_AD)
+        </div>
+
+        <div class="editor-label">
+            <span>Doküman Yer</span>
+            @*@Html.LabelFor(model => model.DOKUMAN_YER*@)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DOKUMAN_YER)
+            @Html.ValidationMessageFor(model => model.DOKUMAN_YER)
+        </div>
+
+        <div class="editor-label">
+            <span>Doküman Dayanak</span>
+            @*@Html.LabelFor(model => model.DOKUMAN_DAYANAK)*@
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DOKUMAN_DAYANAK)
+            @Html.ValidationMessageFor(model => model.DOKUMAN_DAYANAK)
+        </div>
+
+        <p>
+            <input type="submit" value="Kaydet" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Listeye Dön", "ListeBilgileriDokumanlar")
+</div>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a11a4856a3c54edb99faecc8dfa57dc2" Name="Diagram1">
+        <EntityTypeShape EntityType="DENETİMModel1.BASLIK" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DENETİMModel1.BASLIKALT" Width="2" PointX="3.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DENETİMModel1.BOLUM" Width="1.5" PointX="3.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DENETİMModel1.DEGERLENDIRME" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DENETİMModel1.DENETIM" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DENETİMModel1.DENETIMSONUC" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DENETİMModel1.KATEGORI" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DENETİMModel1.KULLANICI" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DENETİMModel1.MADDELER" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DENETİMModel1.SONUC" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DENETİMModel1.sysdiagrams" Width="1.5" PointX="8.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DENETİMModel1.TUR" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="DENETİMModel1.FK_MADDELER_BASLIK" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_MADDELER_BASLIK1" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_MADDELER_BASLIKALT" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_MADDELER_BASLIKALT1" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_MADDELER_BOLUM" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_MADDELER_BOLUM1" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_DENETIMSONUC_DEGERLENDIRME" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_DENETIM_KATEGORI" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_DENETIM_MADDELER" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_DENETIM_SONUC" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_DENETIM_TUR" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_DENETIM_TUR1" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_DENETIMSONUC_DENETIM" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_DENETIMSONUC_DENETIM1" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_DENETIMSONUC_KATEGORI" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_MADDELER_KATEGORI" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_MADDELER_TUR" ManuallyRouted="false" />
+        <AssociationConnector Association="DENETİMModel1.FK_MADDELER_TUR1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DENETİMModel1.DDOKUMANLAR" Width="1.5" PointX="10.125" PointY="9.875" />
+        <EntityTypeShape EntityType="DENETİMModel1.DSTANDARTLAR" Width="1.5" PointX="10.125" PointY="7.625" />
+        <EntityTypeShape EntityType="DENETİMModel1.KISALTMALAR" Width="1.5" PointX="10" PointY="3.375" />
+        <EntityTypeShape EntityType="DENETİMModel1.TERIMLER" Width="1.5" PointX="10" PointY="5.375" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
